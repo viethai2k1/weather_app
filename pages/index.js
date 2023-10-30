@@ -2,7 +2,7 @@ import React from "react";
 import { BsFillSunriseFill, BsFillSunsetFill, BsSearch } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import { useDebounce } from "use-debounce";
-export default function index() {
+export default function Home() {
   const [trangthaimau, setTrangThaiMau] = useState("C");
   const [tenthanhpho, setTenthanhpho] = useState("Roma");
   const [tenthanhphoDebounce] = useDebounce(tenthanhpho, 500);
@@ -106,9 +106,9 @@ export default function index() {
           <div>
             <div className="grid grid-cols-7 gap-[10px] mt-[10px]">
               {thongtinnhietdo.daily &&
-                thongtinnhietdo.daily.slice(0, 7).map((ngay) => {
+                thongtinnhietdo.daily.slice(0, 7).map((ngay, index) => {
                   return (
-                    <div className=" h-[140px] rounded-[10px] bg-[white] flex gap-[10px] flex-col items-center justify-center">
+                    <div key={index} className=" h-[140px] rounded-[10px] bg-[white] flex gap-[10px] flex-col items-center justify-center">
                       <div className="text-[14px] font-medium">
                         {formatDate2(ngay?.dt)}
                       </div>
@@ -136,7 +136,7 @@ export default function index() {
             </div>
 
             <div className="flex flex-col gap-[15px]">
-              <div className="font-semibold mt-[25px]">Today's Highlights</div>
+              <div className="font-semibold mt-[25px]">Today&apos;s Highlights</div>
               <div className="grid grid-cols-3 gap-[20px]  ">
                 <div className="w-[250px] h-[150px] bg-[white] rounded-[20px] p-[20px]">
                   <div className="text-[gray] text-[13px]">UV Index</div>
