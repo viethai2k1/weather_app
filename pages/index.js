@@ -2,6 +2,8 @@ import React from "react";
 import { BsFillSunriseFill, BsFillSunsetFill, BsSearch } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import { useDebounce } from "use-debounce";
+import Head from 'next/head'
+
 export default function Home() {
   const [trangthaimau, setTrangThaiMau] = useState("C");
   const [tenthanhpho, setTenthanhpho] = useState("Roma");
@@ -28,6 +30,11 @@ export default function Home() {
 
   return (
     <div className="w-screen h-screen bg-[#D1D5DB] flex justify-center items-center ">
+      
+      <Head>
+        <title>{tenthanhpho}</title>
+        <link rel="icon" href={`https://ngoc.fly.dev/${thongtinnhietdo?.current?.weather[0].icon}.svg`}></link>
+      </Head>
       <div className="w-[1100px] h-[620px] bg-[yellow] rounded-[30px] flex">
         <div className="w-[270px] h-[620px] bg-[#242F40] rounded-l-3xl p-[30px]">
           <div className="relative">
